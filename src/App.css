@@ -1,0 +1,61 @@
+
+.image-container {
+  position: relative;
+  border: 1px solid rgb(195, 190, 190);
+  padding: 0;
+  border-radius: 5px;
+  box-shadow: 0.5px 0.5px 2px rgb(156, 154, 154);
+  margin: 15px;
+  top: 0;
+}
+
+.image-container input{
+  background-color: white;
+  opacity: 1;
+  position: absolute;
+  z-index: 999;
+  top: 5%;
+  left: 5%;
+}
+
+/* The image */
+.image-container img {
+  display: block;
+  width: 100%; 
+}
+
+/* Overlay that covers the image initially */
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(96, 91, 91, 0.5);
+  opacity: 0; 
+  transition: opacity 0.3s ease; 
+}
+
+
+.image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+.input {
+  display: none;
+}
+
+.image-container:hover .input{
+  display: block;
+}
+
+.image-card-container .image-container:first-child img{
+   height: 25.7rem;
+   width: 25.7rem;
+}
+
+.image-card-container .image-container:not(:first-child){
+  height: 12rem;
+  width: 12rem;
+}
+

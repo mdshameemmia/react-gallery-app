@@ -1,7 +1,8 @@
 import React, { useState, useRef } from "react";
-import ImageCard from "./components/image-component";
 import "./App.css";
+import ImageCard from "./components/image-card.component";
 import { imageList } from "./utilities/data";
+import Button from "./components/common/button.component";
 
 function App() {
   const dragItem = useRef();
@@ -20,7 +21,7 @@ function App() {
     }
   };
 
-  //const handle drag sorting
+
   const handleSort = () => {
     //duplicate items
     let _images = [...images];
@@ -39,10 +40,8 @@ function App() {
     setImages(_images);
   };
 
-
   // delete img
   const imageDeleteHandler = () => {
-
     const _inputTags = document.querySelectorAll('input[type=checkbox]');
     _inputTags.forEach(inputTag => {
       if(inputTag.classList[0] == 'form-check-input'){
@@ -53,7 +52,6 @@ function App() {
     
   }
 
-
   return (
     <div className="container">
       <div className="mx-3 delete-item-container">
@@ -63,9 +61,7 @@ function App() {
               <input type="checkbox" checked={true} className="mx-1" />
              {removeImages.length} Files Selected
             </label>
-            <button onClick={imageDeleteHandler} className="btn btn-light text-danger fw-bold">
-              Delete Files
-            </button>
+            <Button text='Delete Files' onEvent={imageDeleteHandler} className='btn-light text-danger fw-bold'/>
           </div>
         ) : (
           <h3>Gallery</h3>

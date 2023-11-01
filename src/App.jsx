@@ -84,7 +84,7 @@ function App() {
             id={item}
           >
             <ImageCard
-              url={`/public/images/${item}`}
+              url={`/images/${item}`}
               onEvent={(e) => handleSelect(e, item)}
             />
           </div>

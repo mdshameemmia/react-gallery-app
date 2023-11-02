@@ -59,3 +59,15 @@
   width: 12rem;
 }
 
+@media (max-width: 576px) {
+  .image-card-container .image-container:first-child img{
+    height: 14rem;
+    width: 14rem;
+ }
+
+ .image-card-container .image-container:not(:first-child){
+  height: 6.5rem;
+  width:6.5rem;
+}
+} 
+

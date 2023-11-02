@@ -3,6 +3,7 @@ import "./App.css";
 import ImageCard from "./components/image-card.component";
 import { imageList } from "./utilities/data";
 import Button from "./components/common/button.component";
+import Input from "./components/common/input.component";
 
 function App() {
   const dragItem = useRef();
@@ -15,12 +16,11 @@ function App() {
       setRemoveImages([...removeImages, item]);
       e.target.className = "form-check-input";
     } else {
-      const _filteredImages = removeImages.filter(image => image !== item);
+      const _filteredImages = removeImages.filter((image) => image !== item);
       setRemoveImages(_filteredImages);
       e.target.className = "input form-check-input";
     }
   };
-
 
   const handleSort = () => {
     //duplicate items
@@ -42,14 +42,14 @@ function App() {
 
   // delete img
   const imageDeleteHandler = () => {
-    const _inputTags = document.querySelectorAll('input[type=checkbox]');
-    _inputTags.forEach(inputTag => {
-      if(inputTag.classList[0] == 'form-check-input'){
+    const _inputTags = document.querySelectorAll("input[type=checkbox]");
+    _inputTags.forEach((inputTag) => {
+      if (inputTag.classList[0] == "form-check-input") {
         inputTag.parentElement.parentElement.remove();
       }
-    })
+    });
     setRemoveImages([]);
-  }
+  };
 
   return (
     <div className="container">
@@ -57,10 +57,14 @@ function App() {
         {removeImages.length > 0 ? (
           <div className="d-flex justify-content-between">
             <label className="fw-bold">
-              <input type="checkbox" checked={true} className="mx-1" />
-             {removeImages.length} Files Selected
+              <Input type="checkbox" checked={true} className="mx-1" />
+              {removeImages.length} Files Selected
             </label>
-            <Button text='Delete Files' onEvent={imageDeleteHandler} className='btn-light text-danger fw-bold'/>
+            <Button
+              text="Delete Files"
+              onEvent={imageDeleteHandler}
+              className="btn-light text-danger fw-bold"
+            />
           </div>
         ) : (
           <h3>Gallery</h3>

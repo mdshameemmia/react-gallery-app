@@ -1,15 +1,11 @@
-const ImageCard = ({ url, onEvent }) => {
-  return (
+import Input from "./common/input.component";
+
+const ImageCard = ({ url, onEvent }) =>  (
     <div >
-      <input
-        type="checkbox"
-        className="input form-check-input"
-        onChange={(e) => onEvent(e)}
-      />
+      <Input type="checkbox" className="input form-check-input" onEvent={(e)=>onEvent(e)} />
       <img src={url} alt="Image"/>
       <div className="image-overlay"></div>
     </div>
-  );
-};
+);
 
 export default ImageCard;
